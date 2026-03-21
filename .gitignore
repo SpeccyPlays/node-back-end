@@ -1,6 +1,9 @@
 #env
 .env
 
+#setup notes
+/setup
+
 # Logs
 logs
 *.log

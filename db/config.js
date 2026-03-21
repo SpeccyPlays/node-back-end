@@ -10,5 +10,4 @@ if (!process.env.JWT_SECRET) {
 
 export const config = {
   dbUrl: process.env.DATABASE_URL,
-  jwtSecret: process.env.JWT_SECRET,
 };
