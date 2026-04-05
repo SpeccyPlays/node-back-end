@@ -23,12 +23,11 @@ export async function login(req, res){
     if (!email || !password){
       return res.status(400).json({ error : 'Missing credentials'});
     }
-    const result = await loginUser(email, password);
-
-    return res.status(200).json({ message : 'User logged in successfully'});
+    const token = await loginUser(email, password);
+    return res.status(200).json({token : token});
 
   } catch (err){
-    if (err.message === 'USER_NOT_EXIST' || err.message === 'INVALID_PASSWORD'){
+    if (err.message === 'USER_NOT_FOUND' || err.message === 'INVALID_PASSWORD'){
       return res.status(401).json({ error : 'Invalid credentials'});
     }
     res.status(500).json({ error: 'Server error' });
